@@ -4,8 +4,8 @@ Builds the initial graph, within the flight boundary_ft and outside obstacles.
 TODO:
     Remove nodes outside non-rectangular flight boundary_ft
 """
-from planning_util.graph.xgrid import xgrid_graph
-from planning_util.graph.polygon import Polygon
+from planning_util.xgrid import xgrid_graph
+from planning_util.polygon import Polygon
 
 from typing import Dict, Any
 

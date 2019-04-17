@@ -12,7 +12,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from geopy.distance import distance as distance_ll
 
-from planning_util.graph.graph import FlightGraph
+from planning_util.graph import FlightGraph
 
 class Environment:
     def __init__(self, boundary: np.ndarray,

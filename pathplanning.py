@@ -1,4 +1,4 @@
-import context
+# import context
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -10,7 +10,7 @@ from planning_util.env import Environment
 
 
 RESULTS_DIR = 'tests/results/'
-CONFIG_DIR = 'tests/config/'
+CONFIG_DIR = 'tests/data/'
 BOUNDARY = np.genfromtxt(CONFIG_DIR + 'boundary.csv', delimiter=',').T
 STATIC_OBS = np.genfromtxt(CONFIG_DIR + 'static_obs.csv', delimiter=',').T
 PARAMS = {'granularity': 100, 'quantization_distance': 7}
