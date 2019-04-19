@@ -12,15 +12,15 @@ PASSWORD = '<CHANGEME>'
 time_step = 1.0 # every second
 class SendTelemInfo:
     def __init__(self):
-        rospy.init_node('PrintGPS', anonymous=True)
+        rospy.init_node('Telemetry', anonymous=True)
         r = requests.post('{}/api/login'.format(API_URI), data={
             'username': USERNAME,
             'password': PASSWORD
         })
         self.cookies = r.cookies
         self.data = {'telem': None, 'heading': None}
-        self.test_info = rospy.Subscriber('/mavros/global_position/global/', NavSatFix, self.set_telem)
-        self.thing = rospy.Subscriber('/mavros/global_position/compass_hdg', Float64, self.set_heading)
+        self.gps = rospy.Subscriber('/mavros/global_position/global/', NavSatFix, self.set_telem)
+        self.heading = rospy.Subscriber('/mavros/global_position/compass_hdg', Float64, self.set_heading)
 
     def set_telem(self, data):
         self.data['telem'] = data

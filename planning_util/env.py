@@ -16,7 +16,7 @@ from planning_util.graph import FlightGraph
 
 class Environment:
     def __init__(self, boundary: np.ndarray,
-                 static_obs: np.ndarray, params: Dict[str,Any]):
+                 static_obs: np.ndarray, granularity: int):
         """An Environment describes the static elements of the
         flight environment for a mission.
 
@@ -30,7 +30,7 @@ class Environment:
             * ...
         """
         # set all parameters
-        self.granularity = params['granularity']
+        self.granularity = granularity
                        
         # set all fields that are constant between missions
         self.boundary_ll = boundary
