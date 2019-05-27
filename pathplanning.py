@@ -37,7 +37,7 @@ def build_path(env, cur, target):
     end = (round_to_granularity(env, end[0]), round_to_granularity(env, end[1]))
     path = shortest_path(env.graph.base_graph, start, end, weight='weight')
     path = trim_path(path)
-    path = np.array([[p[1] for p in path], [p[0] for p in path]]) * 100.0
+    path = np.array([[p[1] for p in path], [p[0] for p in path]]) * float(env.granularity)
     path = env.ft_to_ll(path)
     return path
 
@@ -53,7 +53,7 @@ if __name__ == '__main__':
     CONFIG_DIR = 'tests/data/'
     BOUNDARY = np.genfromtxt(CONFIG_DIR + 'boundary.csv', delimiter=',').T
     STATIC_OBS = np.genfromtxt(CONFIG_DIR + 'static_obs.csv', delimiter=',').T
-    GRANULARITY = 100
+    GRANULARITY = 50
 
     result_dir = RESULTS_DIR + 'test_environment_display/'
     shutil.rmtree(result_dir, ignore_errors=True)
